@@ -1,0 +1,756 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;700&display=swap");
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-family: "Philosopher", sans-serif;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.Main-grid-container {
+  display: grid;
+  grid-template-columns: 0.8fr 3fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.left-container {
+  margin-left: 40px;
+  margin-right: 10px;
+}
+.left-container .menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+.left-container .menu .header {
+  margin-top: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -30px;
+  justify-content: start;
+  padding: 5px 10px;
+  border: 2px solid;
+  padding: 5px;
+  width: 100%;
+}
+.left-container .menu .header i {
+  display: inline;
+  margin-right: 10px;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: #FFB000;
+}
+.left-container .menu .item-list {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+.left-container .menu .item-list .list {
+  padding: 2px 10px;
+}
+.left-container .menu .item-list .list i,
+.left-container .menu .item-list .list p {
+  display: inline;
+  font-size: 16.5px;
+}
+
+.center-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-right: 1px solid rgba(51, 51, 51, 0.6901960784);
+  border-left: 1px solid #ccc;
+}
+.center-container header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0px 20px;
+  position: sticky;
+  top: 0%;
+  z-index: 1;
+  background-color: #fff;
+}
+.center-container header .hamburger {
+  width: 30px;
+  height: 20px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.center-container header .hamburger span {
+  width: 100%;
+  height: 3.2px;
+  background-color: #000000;
+  transform-origin: left;
+  transition: all 0.3s ease;
+}
+.center-container header h2 {
+  margin-right: 5px;
+  color: #FFB000;
+}
+.center-container header .search-bar {
+  flex-grow: 1;
+  position: relative;
+  margin: 0px 20px;
+}
+.center-container header .search-bar input {
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  outline: none;
+  padding: 5px 15px;
+  font-size: 18px;
+}
+.center-container header .search-bar .fa-magnifying-glass {
+  position: absolute;
+  right: 6%;
+  line-height: 45px;
+}
+.center-container header .theme {
+  margin-right: 15px;
+}
+.center-container header .theme .circle {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+  position: relative;
+}
+.center-container header .theme .circle .moon,
+.center-container header .theme .circle .sun {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+  transition: all 1s ease;
+  transition-delay: 0.3s;
+}
+.center-container header .theme .circle .sun {
+  transform: scale(0);
+  transition-delay: 0.3s;
+}
+.center-container header .theme .circle.active {
+  background-color: #e3aeae;
+}
+.center-container header .theme.active .moon {
+  transform: rotate(360deg) scale(0);
+}
+.center-container header .theme.active .sun {
+  color: rgb(255, 255, 255);
+  transform: scale(1) rotate(360deg);
+}
+.center-container .shoping-card {
+  width: 50px;
+  height: 50px;
+  margin: 0px 10px 0px 0px;
+}
+.center-container .shoping-card .fa-cart-shopping {
+  font-size: 20px;
+  position: relative;
+  left: 12px;
+  line-height: 50px;
+  z-index: 10;
+}
+.center-container .shoping-card::before {
+  content: "";
+  position: absolute;
+  background-color: #FFB000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: -1;
+}
+.center-container .trending-section {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.center-container .trending-section h3 {
+  margin-bottom: 20px;
+}
+.center-container .trending-section .trend-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.center-container .trending-section .trend-img .circle-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.center-container .trending-section .trend-img .circle-img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.center-container .non-veg-container,
+.center-container .veg-container,
+.center-container .biscuits-container,
+.center-container .juice-container,
+.center-container .recommended-section {
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+.center-container .non-veg-container h3,
+.center-container .veg-container h3,
+.center-container .biscuits-container h3,
+.center-container .juice-container h3,
+.center-container .recommended-section h3 {
+  margin-bottom: 10px;
+}
+.center-container .non-veg-container .non-veg,
+.center-container .non-veg-container .veg,
+.center-container .non-veg-container .cookies,
+.center-container .non-veg-container .juice,
+.center-container .non-veg-container .cards-container,
+.center-container .veg-container .non-veg,
+.center-container .veg-container .veg,
+.center-container .veg-container .cookies,
+.center-container .veg-container .juice,
+.center-container .veg-container .cards-container,
+.center-container .biscuits-container .non-veg,
+.center-container .biscuits-container .veg,
+.center-container .biscuits-container .cookies,
+.center-container .biscuits-container .juice,
+.center-container .biscuits-container .cards-container,
+.center-container .juice-container .non-veg,
+.center-container .juice-container .veg,
+.center-container .juice-container .cookies,
+.center-container .juice-container .juice,
+.center-container .juice-container .cards-container,
+.center-container .recommended-section .non-veg,
+.center-container .recommended-section .veg,
+.center-container .recommended-section .cookies,
+.center-container .recommended-section .juice,
+.center-container .recommended-section .cards-container {
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  gap: 10px;
+  overflow: scroll;
+}
+.center-container .non-veg-container .non-veg .card,
+.center-container .non-veg-container .veg .card,
+.center-container .non-veg-container .cookies .card,
+.center-container .non-veg-container .juice .card,
+.center-container .non-veg-container .cards-container .card,
+.center-container .veg-container .non-veg .card,
+.center-container .veg-container .veg .card,
+.center-container .veg-container .cookies .card,
+.center-container .veg-container .juice .card,
+.center-container .veg-container .cards-container .card,
+.center-container .biscuits-container .non-veg .card,
+.center-container .biscuits-container .veg .card,
+.center-container .biscuits-container .cookies .card,
+.center-container .biscuits-container .juice .card,
+.center-container .biscuits-container .cards-container .card,
+.center-container .juice-container .non-veg .card,
+.center-container .juice-container .veg .card,
+.center-container .juice-container .cookies .card,
+.center-container .juice-container .juice .card,
+.center-container .juice-container .cards-container .card,
+.center-container .recommended-section .non-veg .card,
+.center-container .recommended-section .veg .card,
+.center-container .recommended-section .cookies .card,
+.center-container .recommended-section .juice .card,
+.center-container .recommended-section .cards-container .card {
+  width: 220px !important;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.center-container .non-veg-container .non-veg .card .card-img,
+.center-container .non-veg-container .veg .card .card-img,
+.center-container .non-veg-container .cookies .card .card-img,
+.center-container .non-veg-container .juice .card .card-img,
+.center-container .non-veg-container .cards-container .card .card-img,
+.center-container .veg-container .non-veg .card .card-img,
+.center-container .veg-container .veg .card .card-img,
+.center-container .veg-container .cookies .card .card-img,
+.center-container .veg-container .juice .card .card-img,
+.center-container .veg-container .cards-container .card .card-img,
+.center-container .biscuits-container .non-veg .card .card-img,
+.center-container .biscuits-container .veg .card .card-img,
+.center-container .biscuits-container .cookies .card .card-img,
+.center-container .biscuits-container .juice .card .card-img,
+.center-container .biscuits-container .cards-container .card .card-img,
+.center-container .juice-container .non-veg .card .card-img,
+.center-container .juice-container .veg .card .card-img,
+.center-container .juice-container .cookies .card .card-img,
+.center-container .juice-container .juice .card .card-img,
+.center-container .juice-container .cards-container .card .card-img,
+.center-container .recommended-section .non-veg .card .card-img,
+.center-container .recommended-section .veg .card .card-img,
+.center-container .recommended-section .cookies .card .card-img,
+.center-container .recommended-section .juice .card .card-img,
+.center-container .recommended-section .cards-container .card .card-img {
+  width: 100%;
+  overflow: hidden;
+}
+.center-container .non-veg-container .non-veg .card .card-img img,
+.center-container .non-veg-container .veg .card .card-img img,
+.center-container .non-veg-container .cookies .card .card-img img,
+.center-container .non-veg-container .juice .card .card-img img,
+.center-container .non-veg-container .cards-container .card .card-img img,
+.center-container .veg-container .non-veg .card .card-img img,
+.center-container .veg-container .veg .card .card-img img,
+.center-container .veg-container .cookies .card .card-img img,
+.center-container .veg-container .juice .card .card-img img,
+.center-container .veg-container .cards-container .card .card-img img,
+.center-container .biscuits-container .non-veg .card .card-img img,
+.center-container .biscuits-container .veg .card .card-img img,
+.center-container .biscuits-container .cookies .card .card-img img,
+.center-container .biscuits-container .juice .card .card-img img,
+.center-container .biscuits-container .cards-container .card .card-img img,
+.center-container .juice-container .non-veg .card .card-img img,
+.center-container .juice-container .veg .card .card-img img,
+.center-container .juice-container .cookies .card .card-img img,
+.center-container .juice-container .juice .card .card-img img,
+.center-container .juice-container .cards-container .card .card-img img,
+.center-container .recommended-section .non-veg .card .card-img img,
+.center-container .recommended-section .veg .card .card-img img,
+.center-container .recommended-section .cookies .card .card-img img,
+.center-container .recommended-section .juice .card .card-img img,
+.center-container .recommended-section .cards-container .card .card-img img {
+  transition: all 0.3s ease;
+  aspect-ratio: 2/1.3;
+}
+.center-container .non-veg-container .non-veg .card:hover img,
+.center-container .non-veg-container .veg .card:hover img,
+.center-container .non-veg-container .cookies .card:hover img,
+.center-container .non-veg-container .juice .card:hover img,
+.center-container .non-veg-container .cards-container .card:hover img,
+.center-container .veg-container .non-veg .card:hover img,
+.center-container .veg-container .veg .card:hover img,
+.center-container .veg-container .cookies .card:hover img,
+.center-container .veg-container .juice .card:hover img,
+.center-container .veg-container .cards-container .card:hover img,
+.center-container .biscuits-container .non-veg .card:hover img,
+.center-container .biscuits-container .veg .card:hover img,
+.center-container .biscuits-container .cookies .card:hover img,
+.center-container .biscuits-container .juice .card:hover img,
+.center-container .biscuits-container .cards-container .card:hover img,
+.center-container .juice-container .non-veg .card:hover img,
+.center-container .juice-container .veg .card:hover img,
+.center-container .juice-container .cookies .card:hover img,
+.center-container .juice-container .juice .card:hover img,
+.center-container .juice-container .cards-container .card:hover img,
+.center-container .recommended-section .non-veg .card:hover img,
+.center-container .recommended-section .veg .card:hover img,
+.center-container .recommended-section .cookies .card:hover img,
+.center-container .recommended-section .juice .card:hover img,
+.center-container .recommended-section .cards-container .card:hover img {
+  transform: scale(1.2);
+}
+.center-container .non-veg-container .non-veg .card .product-description .product-title,
+.center-container .non-veg-container .veg .card .product-description .product-title,
+.center-container .non-veg-container .cookies .card .product-description .product-title,
+.center-container .non-veg-container .juice .card .product-description .product-title,
+.center-container .non-veg-container .cards-container .card .product-description .product-title,
+.center-container .veg-container .non-veg .card .product-description .product-title,
+.center-container .veg-container .veg .card .product-description .product-title,
+.center-container .veg-container .cookies .card .product-description .product-title,
+.center-container .veg-container .juice .card .product-description .product-title,
+.center-container .veg-container .cards-container .card .product-description .product-title,
+.center-container .biscuits-container .non-veg .card .product-description .product-title,
+.center-container .biscuits-container .veg .card .product-description .product-title,
+.center-container .biscuits-container .cookies .card .product-description .product-title,
+.center-container .biscuits-container .juice .card .product-description .product-title,
+.center-container .biscuits-container .cards-container .card .product-description .product-title,
+.center-container .juice-container .non-veg .card .product-description .product-title,
+.center-container .juice-container .veg .card .product-description .product-title,
+.center-container .juice-container .cookies .card .product-description .product-title,
+.center-container .juice-container .juice .card .product-description .product-title,
+.center-container .juice-container .cards-container .card .product-description .product-title,
+.center-container .recommended-section .non-veg .card .product-description .product-title,
+.center-container .recommended-section .veg .card .product-description .product-title,
+.center-container .recommended-section .cookies .card .product-description .product-title,
+.center-container .recommended-section .juice .card .product-description .product-title,
+.center-container .recommended-section .cards-container .card .product-description .product-title {
+  font-size: 20px;
+  margin: 3px;
+  font-weight: 600;
+}
+.center-container .non-veg-container .non-veg .card .product-description .product-title + p,
+.center-container .non-veg-container .veg .card .product-description .product-title + p,
+.center-container .non-veg-container .cookies .card .product-description .product-title + p,
+.center-container .non-veg-container .juice .card .product-description .product-title + p,
+.center-container .non-veg-container .cards-container .card .product-description .product-title + p,
+.center-container .veg-container .non-veg .card .product-description .product-title + p,
+.center-container .veg-container .veg .card .product-description .product-title + p,
+.center-container .veg-container .cookies .card .product-description .product-title + p,
+.center-container .veg-container .juice .card .product-description .product-title + p,
+.center-container .veg-container .cards-container .card .product-description .product-title + p,
+.center-container .biscuits-container .non-veg .card .product-description .product-title + p,
+.center-container .biscuits-container .veg .card .product-description .product-title + p,
+.center-container .biscuits-container .cookies .card .product-description .product-title + p,
+.center-container .biscuits-container .juice .card .product-description .product-title + p,
+.center-container .biscuits-container .cards-container .card .product-description .product-title + p,
+.center-container .juice-container .non-veg .card .product-description .product-title + p,
+.center-container .juice-container .veg .card .product-description .product-title + p,
+.center-container .juice-container .cookies .card .product-description .product-title + p,
+.center-container .juice-container .juice .card .product-description .product-title + p,
+.center-container .juice-container .cards-container .card .product-description .product-title + p,
+.center-container .recommended-section .non-veg .card .product-description .product-title + p,
+.center-container .recommended-section .veg .card .product-description .product-title + p,
+.center-container .recommended-section .cookies .card .product-description .product-title + p,
+.center-container .recommended-section .juice .card .product-description .product-title + p,
+.center-container .recommended-section .cards-container .card .product-description .product-title + p {
+  margin: 5px 0px;
+  font-size: 14px;
+}
+.center-container .non-veg-container .non-veg .card .product-description .rupees,
+.center-container .non-veg-container .veg .card .product-description .rupees,
+.center-container .non-veg-container .cookies .card .product-description .rupees,
+.center-container .non-veg-container .juice .card .product-description .rupees,
+.center-container .non-veg-container .cards-container .card .product-description .rupees,
+.center-container .veg-container .non-veg .card .product-description .rupees,
+.center-container .veg-container .veg .card .product-description .rupees,
+.center-container .veg-container .cookies .card .product-description .rupees,
+.center-container .veg-container .juice .card .product-description .rupees,
+.center-container .veg-container .cards-container .card .product-description .rupees,
+.center-container .biscuits-container .non-veg .card .product-description .rupees,
+.center-container .biscuits-container .veg .card .product-description .rupees,
+.center-container .biscuits-container .cookies .card .product-description .rupees,
+.center-container .biscuits-container .juice .card .product-description .rupees,
+.center-container .biscuits-container .cards-container .card .product-description .rupees,
+.center-container .juice-container .non-veg .card .product-description .rupees,
+.center-container .juice-container .veg .card .product-description .rupees,
+.center-container .juice-container .cookies .card .product-description .rupees,
+.center-container .juice-container .juice .card .product-description .rupees,
+.center-container .juice-container .cards-container .card .product-description .rupees,
+.center-container .recommended-section .non-veg .card .product-description .rupees,
+.center-container .recommended-section .veg .card .product-description .rupees,
+.center-container .recommended-section .cookies .card .product-description .rupees,
+.center-container .recommended-section .juice .card .product-description .rupees,
+.center-container .recommended-section .cards-container .card .product-description .rupees {
+  font-weight: bolder;
+  display: inline;
+  font-size: 20px;
+}
+.center-container .non-veg-container .non-veg .card .product-description .light,
+.center-container .non-veg-container .veg .card .product-description .light,
+.center-container .non-veg-container .cookies .card .product-description .light,
+.center-container .non-veg-container .juice .card .product-description .light,
+.center-container .non-veg-container .cards-container .card .product-description .light,
+.center-container .veg-container .non-veg .card .product-description .light,
+.center-container .veg-container .veg .card .product-description .light,
+.center-container .veg-container .cookies .card .product-description .light,
+.center-container .veg-container .juice .card .product-description .light,
+.center-container .veg-container .cards-container .card .product-description .light,
+.center-container .biscuits-container .non-veg .card .product-description .light,
+.center-container .biscuits-container .veg .card .product-description .light,
+.center-container .biscuits-container .cookies .card .product-description .light,
+.center-container .biscuits-container .juice .card .product-description .light,
+.center-container .biscuits-container .cards-container .card .product-description .light,
+.center-container .juice-container .non-veg .card .product-description .light,
+.center-container .juice-container .veg .card .product-description .light,
+.center-container .juice-container .cookies .card .product-description .light,
+.center-container .juice-container .juice .card .product-description .light,
+.center-container .juice-container .cards-container .card .product-description .light,
+.center-container .recommended-section .non-veg .card .product-description .light,
+.center-container .recommended-section .veg .card .product-description .light,
+.center-container .recommended-section .cookies .card .product-description .light,
+.center-container .recommended-section .juice .card .product-description .light,
+.center-container .recommended-section .cards-container .card .product-description .light {
+  font-size: 14px;
+  color: rgba(51, 51, 51, 0.8941176471);
+}
+.center-container .non-veg-container .non-veg .card .addtoplate,
+.center-container .non-veg-container .veg .card .addtoplate,
+.center-container .non-veg-container .cookies .card .addtoplate,
+.center-container .non-veg-container .juice .card .addtoplate,
+.center-container .non-veg-container .cards-container .card .addtoplate,
+.center-container .veg-container .non-veg .card .addtoplate,
+.center-container .veg-container .veg .card .addtoplate,
+.center-container .veg-container .cookies .card .addtoplate,
+.center-container .veg-container .juice .card .addtoplate,
+.center-container .veg-container .cards-container .card .addtoplate,
+.center-container .biscuits-container .non-veg .card .addtoplate,
+.center-container .biscuits-container .veg .card .addtoplate,
+.center-container .biscuits-container .cookies .card .addtoplate,
+.center-container .biscuits-container .juice .card .addtoplate,
+.center-container .biscuits-container .cards-container .card .addtoplate,
+.center-container .juice-container .non-veg .card .addtoplate,
+.center-container .juice-container .veg .card .addtoplate,
+.center-container .juice-container .cookies .card .addtoplate,
+.center-container .juice-container .juice .card .addtoplate,
+.center-container .juice-container .cards-container .card .addtoplate,
+.center-container .recommended-section .non-veg .card .addtoplate,
+.center-container .recommended-section .veg .card .addtoplate,
+.center-container .recommended-section .cookies .card .addtoplate,
+.center-container .recommended-section .juice .card .addtoplate,
+.center-container .recommended-section .cards-container .card .addtoplate {
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  outline: none;
+  font-family: inherit;
+  border: 1px solid #ddd;
+  background-color: #FFB000;
+  margin: 10px 0px 5px 0px;
+}
+.center-container center {
+  font-size: 12px;
+  color: #333;
+}
+
+.right-container .activity {
+  padding: 5px 10px;
+}
+.right-container .list-container .list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.6705882353);
+}
+.right-container .list-container .list .listImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-container .list-container .list .listImg img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-top: 3px solid #FFB000;
+  border-right: 3px solid #FFB000;
+  padding: 4px;
+}
+.right-container .list-container .list .list-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+.right-container .list-container .list .list-details p {
+  font-size: 12px;
+  color: #333;
+}
+.right-container .list-container .list .img-4 {
+  border-right: 3px solid #FFB000;
+  border-bottom: 3px solid #FFB000;
+  border-left: none !important;
+  border-top: none !important;
+}
+.right-container .list-container .list .img-2 {
+  border-top: 3px solid #FFB000;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-left: 3px solid #FFB000;
+}
+.right-container .special {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #FFB000;
+}
+.right-container .special .simg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.right-container .special .simg-container .img-special {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.right-container .special .simg-container .img-special img {
+  border-bottom: 5px solid #FFB000;
+  border-right: 5px solid #FFB000;
+  padding: 8px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.right-container .special .simg-container .img-special:hover img {
+  transform: scale(1.3);
+}
+
+@media screen and (max-width: 576px) {
+  .left-container {
+    position: absolute;
+    top: 3%;
+    left: -110%;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  .left-container .menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+  .left-container .menu .header {
+    margin-top: 5px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+    justify-content: start;
+    padding: 5px 10px;
+    border: 2px solid;
+    width: 200px;
+  }
+  .left-container .menu .header i {
+    display: inline;
+    margin-right: 10px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: #FFB000;
+  }
+  .left-container .menu .item-list {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+  .Main-grid-container {
+    display: flex;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+  .Main-grid-container .center-container header .hamburger {
+    display: flex;
+    min-width: 30px;
+  }
+  .Main-grid-container .center-container header h2 {
+    margin-right: 0px;
+    display: none;
+  }
+  .Main-grid-container .center-container header .search-bar {
+    flex-grow: 1;
+    position: relative;
+    margin: 0px 20px;
+  }
+  .Main-grid-container .center-container header .search-bar input {
+    width: 100%;
+    height: 45px;
+    border-radius: 30px;
+    outline: none;
+    padding: 5px 15px;
+    font-size: 18px;
+  }
+  .Main-grid-container footer {
+    display: none;
+  }
+  .right-container .list-container .list {
+    flex-direction: column;
+  }
+  .right-container .list-container .list .listImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container .list-container .list .listImg img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 10px;
+    border-bottom: 5px solid #FFB000;
+    border-right: 5px solid #FFB000;
+  }
+  .right-container .list-container .list .list-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-container .list-container .list .list-details h4 {
+    font-size: 20px;
+  }
+  .right-container .list-container .list .list-details p {
+    font-size: 18px;
+    color: #636363;
+  }
+  .right-container .list-container .list .img-4 {
+    border-right: 5px solid #FFB000;
+    border-bottom: 5px solid #FFB000;
+  }
+  .right-container .list-container .list .img-2 {
+    border-top: 5px solid #FFB000;
+    border-left: 5px solid #FFB000;
+  }
+  .right-container .special {
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #FFB000;
+  }
+  .right-container .special .simg-container {
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .right-container .special .simg-container .img-special {
+    width: 300px;
+    height: 300px;
+  }
+}/*# sourceMappingURL=style.css.map */
